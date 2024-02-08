@@ -29,6 +29,8 @@ export default function App() {
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
 
+  const tabId = crypto.randomUUID();
+
   return (
     <div>
       <div className="tabs">
@@ -39,7 +41,7 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
-        <TabContent item={content.at(activeTab)} />
+        <TabContent item={content.at(activeTab)} key={tabId} />
       ) : (
         <DifferentContent />
       )}
